@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
+// Middlewares imports
 const auth = require("../middleware/auth");
 const multer = require("../middleware/multer-config");
 
+// Controllers imports
 const sauceCtrl = require("../controllers/sauce");
 
+// Routes for sauce
 router.get("/", auth, sauceCtrl.getAllSauces);
 router.get("/:id", auth, sauceCtrl.getOneSauce);
 router.post("/", auth, multer, sauceCtrl.createSauce);
